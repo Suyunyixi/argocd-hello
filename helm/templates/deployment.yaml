@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: go-hello-http
-          image: "{{ .Value.image.repository }}:{{ default .Value.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ default .Values.image.tag }}"
           ports:
-           - containerPort: 80
+            - containerPort: 80
