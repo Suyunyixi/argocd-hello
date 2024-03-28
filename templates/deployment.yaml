@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argocd-hello
-  albels:
+  labels:
     app: argocd-hello
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: argocd-hello
-   template:
-     matadata:
-       labels:
-         app: argocd-hello
-     spec:
-       containers:
-         - name: go-hello-http
-           image: "{{ .Value.image.repository }}:{{ default .Value.image.tag }}"
-           ports:
-             - containerPort: 80
+  template:
+    metadata:
+      labels:
+        app: argocd-hello
+    spec:
+      containers:
+        - name: go-hello-http
+          image: "{{ .Value.image.repository }}:{{ default .Value.image.tag }}"
+          ports:
+           - containerPort: 80
